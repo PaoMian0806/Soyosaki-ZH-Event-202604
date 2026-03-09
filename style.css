@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #0f0f10; /* 極深灰 */
+  color: #d0d0d0;
+  font-family: "Noto Serif TC", serif;
+  overflow-x: hidden;
+}
+
+/* 下雨容器 */
+.rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* 雨絲樣式：細長且透明的線 */
+.raindrop {
+  position: absolute;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2));
+  width: 1px; /* 寬度 1px 確保是細線 */
+  top: -150px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(120vh);
+  }
+}
+
+/* 導覽列與磨砂玻璃質感 */
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  background: rgba(20, 20, 25, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 100;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  color: #888;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.nav-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.glass-block {
+  background: rgba(40, 40, 45, 0.2);
+  backdrop-filter: blur(8px);
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 4px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.countdown {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-top: 20px;
+  font-family: monospace;
+  color: #fff;
+}
+
+.creator-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+.creator-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 手機適應 */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .countdown {
+    font-size: 1.2rem;
+  }
+}
