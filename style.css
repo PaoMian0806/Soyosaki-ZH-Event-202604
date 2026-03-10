@@ -109,15 +109,37 @@ body {
 /* 手機適應 */
 @media (max-width: 600px) {
   .navbar {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: column; /* 強制上下排列 */
+    align-items: center; /* 關鍵：讓裡面所有東西水平居中 */
+    justify-content: center;
+    padding: 20px 0; /* 增加上下間距，讓視覺更平衡 */
+    gap: 15px; /* Logo 與選單之間的距離 */
   }
+
   .nav-links {
-    gap: 15px;
-    width: 100%; /* 確保容器吃滿寬度 */
-    justify-content: center; /* 再次強制置中對齊 */
+    display: flex;
+    flex-direction: row; /* 按鈕保持左右並排 */
+    justify-content: center; /* 按鈕群組整體置中 */
+    align-items: center;
+    width: 100%; /* 容器吃滿寬度以確保中軸線對齊 */
+    margin: 0 !important; /* 強制覆蓋任何可能的預設外距 */
+    padding: 0 !important; /* 強制覆蓋任何可能的預設內距 */
+    list-style: none;
+    gap: 20px; /* 兩個按鈕之間的間距 */
   }
+
+  .nav-links li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem; /* 稍微縮小字體，適合手機閱讀 */
+    display: inline-block;
+  }
+
   .countdown {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
   }
 }
