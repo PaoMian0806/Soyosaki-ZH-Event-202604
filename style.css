@@ -54,6 +54,10 @@ body {
   list-style: none;
   display: flex;
   gap: 30px;
+  margin: 0; /* 關鍵 1：清除預設外距 */
+  padding: 0; /* 關鍵 2：清除預設內距，解決歪斜主因 */
+  justify-content: center; /* 確保內容水平置中 */
+  flex-wrap: wrap; /* 允許在極小螢幕自動換行 */
 }
 .nav-links a {
   color: #888;
@@ -106,7 +110,12 @@ body {
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+  }
+  .nav-links {
+    gap: 15px;
+    width: 100%; /* 確保容器吃滿寬度 */
+    justify-content: center; /* 再次強制置中對齊 */
   }
   .countdown {
     font-size: 1.2rem;
